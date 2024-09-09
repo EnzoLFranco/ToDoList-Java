@@ -5,6 +5,7 @@ import com.enzolfcode.todolist.model.Task;
 import com.enzolfcode.todolist.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,10 @@ public class TaskController {
         return taskService.listarTodasAsTasks();
     }
 
-    
+    @GetMapping("/tasks/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Task> getTaskPorID(@PathVariable (value = "id") Long id){
+        return taskService.buscarTaskPorID(id);
+    }
 
 }
