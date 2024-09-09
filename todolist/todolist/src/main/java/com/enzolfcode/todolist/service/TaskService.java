@@ -19,7 +19,7 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public List<Task> listarTodasTasks(){
+    public List<Task> listarTodasAsTasks(){
         return taskRepository.findAll();
     }
 }
