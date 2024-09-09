@@ -4,6 +4,7 @@ import com.enzolfcode.todolist.model.Task;
 import com.enzolfcode.todolist.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,11 @@ public class TaskService {
 
     public List<Task> listarTodasAsTasks(){
         return taskRepository.findAll();
+    }
+
+    public ResponseEntity<Task> buscarTaskPorID(Long id){
+        return taskRepository.findById(id)
+                .map(task -> ResponseEntity.ok().body(task))
+                .orElse(ResponseEntity.notFound().build());
     }
 }
