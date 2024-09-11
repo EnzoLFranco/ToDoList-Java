@@ -35,4 +35,10 @@ public class TaskController {
         return taskService.buscarTaskPorID(id);
     }
 
+    @PutMapping("/tasks/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Task> atualizaTaskPorID(@PathVariable(value = "id") Long id, @RequestBody Task task) {
+        return taskService.atualizaTaskPorID(task, id);
+    }
+
 }
