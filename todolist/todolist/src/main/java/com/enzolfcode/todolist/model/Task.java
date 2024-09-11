@@ -1,18 +1,13 @@
 package com.enzolfcode.todolist.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 
 @Entity
 @Table (name = "tasks")
-@Getter
-@Setter
 @ToString
 public class Task {
     @Id
@@ -35,5 +30,37 @@ public class Task {
     @UpdateTimestamp
     @Column(name = "data_atualizacao")
     private Date data_atualizacao;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Date getPrazoFinal() {
+        return prazoFinal;
+    }
+
+    public void setPrazoFinal(Date prazoFinal) {
+        this.prazoFinal = prazoFinal;
+    }
 
 }
